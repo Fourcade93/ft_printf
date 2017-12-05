@@ -6,7 +6,7 @@
 /*   By: fmallaba <fmallaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 21:57:17 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/12/05 19:35:39 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/12/05 21:30:08 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,12 @@ int		ft_check_c(char c)
 	conv = "sSpdDioOuUxXcC%";
 	if (c == '+')
 		return (8);
-	if (c == '-')
+	if (c == '#')
 		return (7);
 	if (c == 'z')
 		return (6);
 	if (c == 'j')
 		return (5);
-	if (c == 'l')
-		return (4);
-	if (c == 'h')
-		return (3);
 	if (c > 47 && c < 58)
 		return (2);
 	if (ft_findchr(conv, c))
@@ -117,11 +113,15 @@ int		get_spec(const char *av, int *i, va_list args)
 			flags.dot_width = ft_get_num(av, &(*i), &flags);
 		else if (ft_check_c(av[*i]) == 2 || av[*i] == '-')
 			flags.min_width = ft_get_num(av, &(*i), &flags);
-		else if ((check = ft_check_c(av[*i])) == 3 || check == 4)
+		else if (av[*i] == 'l')
 		{
-			(ft_check_c(av[(*i) + 1]) == check) ? (flags.flag |= 1UL << (check - 2))
-			: (flags.flag |= 1UL << (check - 1));
-			(ft_check_c(av[(*i) + 1]) == check) ? *i += 1 : *i;
+			(av[(*i) + 1] == 'l') ? (flags.flag |= 1UL << 2) : (flags.flag |= 1UL << 1);
+			(av[(*i) + 1] == 'l') ? *i += 1 : *i;
+		}
+		else if (av[*i] == 'h')
+		{
+			(av[(*i) + 1] == 'h') ? (flags.flag |= 1UL << 3) : (flags.flag |= 1UL << 4);
+			(av[(*i) + 1] == 'h') ? *i += 1 : *i;
 		}
 		else if ((check = ft_check_c(av[*i])) > 4 && check < 9)
 			flags.flag |= 1UL << check;

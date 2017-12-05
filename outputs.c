@@ -6,7 +6,7 @@
 /*   By: fmallaba <fmallaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 13:17:35 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/12/05 16:41:18 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/12/05 21:36:01 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ int		ft_putstr(char *str, t_flags flags)
 		len = 6;
 	else
 		len = ft_strlen(str);
-	if (((flags.flag >> 11) & 1U) && flags.num_width && flags.num_width < len)
-		len = flags.num_width;
+	if (((flags.flag >> 11) & 1U) && flags.dot_width && flags.dot_width < len)
+		len = flags.dot_width;
 	(flags.min_width > 0) ? space = flags.min_width - len : space;
 	if ((flags.flag >> 10) & 1U)
 		write (1, " ", 1);
