@@ -6,7 +6,7 @@
 /*   By: fmallaba <fmallaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 20:13:22 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/12/04 18:32:32 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/12/11 19:08:25 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ t_func	g_funcs[8][15] = {
 		{'S', ft_put_w_str},
 		{'p', ft_putpoint},
 		{'d', ft_dec_itoa},
-		{'D', ft_dec_itoa},
+		{'D', ft_ll_dec_itoa},
 		{'i', ft_dec_itoa},
 		{'o', ft_oct_itoa},
-		{'O', ft_oct_itoa},
+		{'O', ft_ll_oct_itoa},
 		{'u', ft_uint_itoa},
-		{'U', ft_uint_itoa},
+		{'U', ft_z_uint_itoa},
 		{'x', ft_lowhex_itoa},
 		{'X', ft_uphex_itoa},
 		{'c', ft_put_char},
-		{'C', ft_put_char}
+		{'C', ft_put_u_char}
 	},
 	{
 		{'d', ft_l_dec_itoa},
@@ -47,7 +47,10 @@ t_func	g_funcs[8][15] = {
 		{'u', ft_l_uint_itoa},
 		{'U', ft_l_uint_itoa},
 		{'x', ft_l_lowhex_itoa},
-		{'X', ft_l_uphex_itoa}
+		{'X', ft_l_uphex_itoa},
+		{'p', ft_putpoint},
+		{'c', ft_put_u_char},
+		{'s', ft_put_w_str}
 	},
 	{
 		{'d', ft_ll_dec_itoa},
@@ -58,29 +61,10 @@ t_func	g_funcs[8][15] = {
 		{'u', ft_ll_uint_itoa},
 		{'U', ft_ll_uint_itoa},
 		{'x', ft_ll_lowhex_itoa},
-		{'X', ft_ll_uphex_itoa}
-	},
-	{
-		{'d', ft_char_dec_itoa},
-		{'D', ft_char_dec_itoa},
-		{'i', ft_char_dec_itoa},
-		{'o', ft_char_oct_itoa},
-		{'O', ft_char_oct_itoa},
-		{'u', ft_char_uint_itoa},
-		{'U', ft_char_uint_itoa},
-		{'x', ft_char_lowhex_itoa},
-		{'X', ft_char_uphex_itoa}
-	},
-	{
-		{'d', ft_short_dec_itoa},
-		{'D', ft_short_dec_itoa},
-		{'i', ft_short_dec_itoa},
-		{'o', ft_short_oct_itoa},
-		{'O', ft_short_oct_itoa},
-		{'u', ft_short_uint_itoa},
-		{'U', ft_short_uint_itoa},
-		{'x', ft_short_lowhex_itoa},
-		{'X', ft_short_uphex_itoa}
+		{'X', ft_ll_uphex_itoa},
+		{'p', ft_putpoint},
+		{'c', ft_put_u_char},
+		{'s', ft_put_w_str}
 	},
 	{
 		{'d', ft_max_dec_itoa},
@@ -91,18 +75,50 @@ t_func	g_funcs[8][15] = {
 		{'u', ft_max_uint_itoa},
 		{'U', ft_max_uint_itoa},
 		{'x', ft_max_lowhex_itoa},
-		{'X', ft_max_uphex_itoa}
+		{'X', ft_max_uphex_itoa},
+		{'p', ft_putpoint},
+		{'c', ft_put_u_char},
+		{'s', ft_put_w_str}
 	},
 	{
-		{'d', ft_z_dec_itoa},
-		{'D', ft_z_dec_itoa},
-		{'i', ft_z_dec_itoa},
+		{'d', ft_ll_dec_itoa},
+		{'D', ft_ll_dec_itoa},
+		{'i', ft_ll_dec_itoa},
 		{'o', ft_z_oct_itoa},
 		{'O', ft_z_oct_itoa},
 		{'u', ft_z_uint_itoa},
 		{'U', ft_z_uint_itoa},
 		{'x', ft_z_lowhex_itoa},
-		{'X', ft_z_uphex_itoa}
+		{'X', ft_z_uphex_itoa},
+		{'p', ft_putpoint},
+		{'c', ft_put_u_char},
+		{'s', ft_put_w_str}
+	},
+	{
+		{'d', ft_short_dec_itoa},
+		{'D', ft_short_dec_itoa},
+		{'i', ft_short_dec_itoa},
+		{'o', ft_short_oct_itoa},
+		{'O', ft_short_oct_itoa},
+		{'u', ft_short_uint_itoa},
+		{'U', ft_short_uint_itoa},
+		{'x', ft_short_lowhex_itoa},
+		{'X', ft_short_uphex_itoa},
+		{'p', ft_putpoint}
+	},
+	{
+		{'d', ft_char_dec_itoa},
+		{'D', ft_char_dec_itoa},
+		{'i', ft_char_dec_itoa},
+		{'o', ft_char_oct_itoa},
+		{'O', ft_char_oct_itoa},
+		{'u', ft_char_uint_itoa},
+		{'U', ft_char_uint_itoa},
+		{'x', ft_char_lowhex_itoa},
+		{'X', ft_char_uphex_itoa},
+		{'p', ft_putpoint},
+		{'C', ft_put_u_char},
+		{'S', ft_put_w_str}
 	}
 };
 

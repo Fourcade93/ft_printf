@@ -6,7 +6,7 @@
 /*   By: fmallaba <fmallaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 13:19:12 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/12/05 16:21:27 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/12/06 17:44:33 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,6 @@ int		ft_arrlen(int *arr)
 
 int		ft_putpoint(long long n, t_flags flags)
 {
-	write(1, "0x", 2);
-	return (2 + ft_itoa_base(n, 16, 1, flags));
+	flags.flag |= 1UL << 17;
+	return (ft_uint_itoa_base(n, 16, 1, flags));
 }

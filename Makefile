@@ -1,5 +1,6 @@
 SRC = recieve_args.c put_calls.c outputs.c helpers.c put_long_calls.c put_long_long_calls.c \
-put_short_calls.c put_to_char_calls.c put_to_max_calls.c put_z_calls.c
+put_short_calls.c put_to_char_calls.c put_to_max_calls.c put_z_calls.c put_unicode.c \
+put_unicode_helps.c
 OBJ = $(SRC:.c=.o)
 NAME = libftprintf.a
 INC_DIR = includes

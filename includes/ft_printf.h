@@ -6,7 +6,7 @@
 /*   By: fmallaba <fmallaba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 18:11:14 by fmallaba          #+#    #+#             */
-/*   Updated: 2017/12/05 16:41:21 by fmallaba         ###   ########.fr       */
+/*   Updated: 2017/12/11 20:12:52 by fmallaba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,30 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define L 1
+# define LL 2
+# define MAX 3
+# define Z 4
+# define H 5
+# define HH 6
+# define HASH 7
+# define PLUS 8
+# define MINUS 9
+# define SPACE 10
+# define STR 11
+# define OX_X 12
+# define O0 13
+# define UI 14
+# define DEC 15
+# define UOCT 16
+# define P 17
+
 typedef struct	s_flags
 {
 	int			min_width;
 	int			num_width;
 	int			dot_width;
-	short		flag;
+	int			flag;
 }				t_flags;
 
 /*
@@ -29,9 +47,11 @@ typedef struct	s_flags
 */
 int		ft_itoa_base(int64_t val, int base, int up_low, t_flags flags);
 int		ft_putstr(char *str, t_flags flags);
-int		ft_put_w_str(int *arr, t_flags flags);
+int		ft_put_w_str(unsigned int *arr, t_flags flags);
 int		ft_put_char(int n, t_flags flags);
 int		ft_uint_itoa_base(size_t n, size_t base, int up_low, t_flags flags);
+int		ft_put_w_str(unsigned int *arr, t_flags flags);
+int		ft_put_u_char(unsigned int c, t_flags flags);
 
 /*
 **helpers
@@ -39,12 +59,20 @@ int		ft_uint_itoa_base(size_t n, size_t base, int up_low, t_flags flags);
 int		get_len(int64_t n, int base);
 int		ft_strlen(char *str);
 int		ft_arrlen(int *arr);
+
+/*
+**put unicode helps
+*/
 int		get_uint_len(size_t n, size_t base);
+int		count_bits(unsigned int n);
+int		print_four_byte(unsigned int n);
+int		print_three_byte(unsigned int n);
+int		print_two_byte(unsigned int n);
 
 /*
 **put calls
 */
-int		ft_putpoint(long long n, t_flags flags);
+	int ft_putpoint(long long n, t_flags flags);
 int		ft_uphex_itoa(unsigned int n, t_flags flags);
 int		ft_lowhex_itoa(unsigned int n, t_flags flags);
 int		ft_dec_itoa(int n, t_flags flags);
@@ -85,7 +113,7 @@ int		ft_short_uphex_itoa(unsigned int n, t_flags flags);
 int		ft_short_lowhex_itoa(unsigned int n, t_flags flags);
 int		ft_short_dec_itoa(int n, t_flags flags);
 int		ft_short_oct_itoa(unsigned int n, t_flags flags);
-int		ft_short_uint_itoa(unsigned int n, t_flags flags);
+int		ft_short_uint_itoa(size_t n, t_flags flags);
 
 /*
 **put max calls
@@ -101,7 +129,6 @@ int		ft_max_uint_itoa(uintmax_t n, t_flags flags);
 */
 int		ft_z_uphex_itoa(size_t n, t_flags flags);
 int		ft_z_lowhex_itoa(size_t n, t_flags flags);
-int		ft_z_dec_itoa(size_t n, t_flags flags);
 int		ft_z_oct_itoa(size_t n, t_flags flags);
 int		ft_z_uint_itoa(size_t n, t_flags flags);
 
